@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".natario1CameraView.SimpleCameraActivity">
+
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:keepScreenOn="true"
+        app:cameraRequestPermissions="false"
+        app:cameraAudio="off"
+        app:cameraMode="picture"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnTakePhoto">
+
+        <LinearLayout
+            android:id="@+id/watermarkLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="16dp"
+            android:background="@color/colorBackgroundWatermark"
+            app:layout_drawOnPreview="true"
+            app:layout_drawOnPictureSnapshot="true">
+
+            <TextView
+                android:id="@+id/watermark.location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lat: -6.239, Long: 106.123"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/watermark.distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance to site: 141231.13 meters"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/watermark.photodate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photo date: 01/10/2019 11:38:30"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </com.otaliastudios.cameraview.CameraView>
+
+    <Button
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Take Photo"
+        app:layout_constraintTop_toBottomOf="@id/cameraView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
